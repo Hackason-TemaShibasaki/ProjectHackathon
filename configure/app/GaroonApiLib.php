@@ -219,10 +219,11 @@ class GaroonApiLib
      * @param array  $sendAddress 送信先アドレス('user_id','name')
      * @param string $bodyText    メッセージ本文
      * @param string $subjectText メッセージタイトル
+     * @param string $token       リクエストトークン
      *
      * @return Object 送信したメッセージ情報
      */
-    public function messageCreateThreads($loginInfo, $userId, $sendAddress, $bodyText, $subjectText)
+    public function messageCreateThreads($loginInfo, $userId, $userName, $sendAddress, $bodyText, $subjectText, $token)
     {
 
         $actionName = 'MessageCreateThreads';
@@ -231,7 +232,7 @@ class GaroonApiLib
 
         $addressee = array();
         $addressee['user_id'] = $sendAddress['user_id'];
-        $addressee['name'] = $sendAddress['name'];
+        $addressee['name'] = 'dummy';
         $addressee['deleted'] = false;
 
         $creator = array();
@@ -259,6 +260,7 @@ class GaroonApiLib
 
         $args = array();
         $args['create_thread']['thread'] = $thread;
+        $args['request_token'] = $token->request_token;
 
         // SOAP通信
         $soapClient = new SoapClientDummy(self::WSDL_STR, $this->soapOptions);
@@ -270,6 +272,31 @@ class GaroonApiLib
         $result = $soapClient->MessageCreateThreads($args);
 
         return $result;
+    }
+
+    /**
+     * リクエストトークンの取得（メッセージ送信等に使用する）
+     *
+     * @param string $loginInfo ログイン情報
+     *
+     * @return stdClass リクエストトークン情報(request_token)
+     */
+    public function utilGetRequestToken($loginInfo)
+    {
+
+        $actionName = 'UtilGetRequestToken';
+
+        // SOAP通信
+        $soapClient = new SoapClientDummy(self::WSDL_STR, $this->soapOptions);
+        $soapClient->__setCookie('CBSESSID', $loginInfo);
+
+        $soapHeaders = $this->_createHeader('', '', $actionName);
+        $soapClient->__setSoapHeaders($soapHeaders);
+
+        $result = $soapClient->UtilGetRequestToken();
+
+        return $result;
+
     }
 
 
