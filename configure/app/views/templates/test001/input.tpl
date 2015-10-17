@@ -16,21 +16,23 @@
 <table>
 <tr>
 <td>日付：</td>
-<td><input name="Text1" type="text" /></td>
+<td><input name="Date" type="text" /></td>
 </tr>
 <tr>
 <td>勤怠：</td>
-<td><select name="Select1" style="width: 105px">
+<td><select name="Attendance" style="width: 105px">
 <option>全休</option>
 <option>AM休</option>
 <option>PM休</option>
 <option>電車遅延</option>
+<option>痴漢</option>
+<option>痴漢（冤罪）</option>
 <option>Flex</option>
 </select></td>
 </tr>
 <tr>
 <td style="height: 34px">理由：</td>
-<td style="height: 34px"><textarea cols="20" name="TextArea1" rows="2"></textarea></td>
+<td style="height: 34px"><textarea cols="20" name="Reason" rows="2"></textarea></td>
 </tr>
 </table>
 
@@ -44,7 +46,7 @@
 <table>
 <tr>
 <td>宛先：</td>
-<td><select multiple="multiple" name="Select2" style="width: 173px">
+<td><select multiple="multiple" name="Destination" style="width: 173px">
 <option>柴崎稚人</option>
 <option>本多竜馬</option>
 <option>杉田翔太郎</option>
