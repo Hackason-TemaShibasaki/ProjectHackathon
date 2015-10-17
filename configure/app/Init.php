@@ -17,7 +17,7 @@
 define('APPLICATION_ENV', 'development');
 
 /** ベースパス */
-define('BASE_PATH', 'C:/xampp/htdocs/sample_garoonapi');
+define('BASE_PATH', 'C:/xampp/htdocs/ProjectHackathon');
 define('CONFIGURE_PATH', BASE_PATH . '/configure');
 
 // applicationディレクトリのパス定義
@@ -40,9 +40,9 @@ define('LIBRARY_PATH', CONFIGURE_PATH . '/lib');
 define('ZF_PATH', LIBRARY_PATH . '/_zf/ZendFramework-1.11.2/library/');
 
 /** smarty cache */
-define('SMARTY_CACHE_PATH', SMARTY_HOME_PATH . '/sample_garoonapi/cache/');
+define('SMARTY_CACHE_PATH', SMARTY_HOME_PATH . '/ProjectHackathon/cache/');
 /** smarty compile */
-define('SMARTY_COMPILE_PATH', SMARTY_HOME_PATH . '/sample_garoonapi/compile/');
+define('SMARTY_COMPILE_PATH', SMARTY_HOME_PATH . '/ProjectHackathon/compile/');
 /** smarty base */
 define('SMARTY_LIB_PATH', LIBRARY_PATH . '/_smarty/Smarty-3.1.12/libs');
 
