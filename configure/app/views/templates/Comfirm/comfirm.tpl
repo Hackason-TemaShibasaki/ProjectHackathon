@@ -18,7 +18,7 @@
 </head>
 
 <body>
-<form action="http://localhost/garoon_api/ComfirmController/sendMessage" name="dummy" method="post" enctype="multipart/form-data">
+<form action="http://localhost/garoon_api/Comfirm/sendmessage" name="dummy" method="post" enctype="multipart/form-data">
 
 <h1>確認画面</h1>
 <form action="" method="post">
@@ -29,7 +29,7 @@
 </tr>
 <tr>
 <td class="auto-style2">本文</td>
-<td class="auto-style2" name="main" >{$main}<br>
+<td class="auto-style2" name="main" >{$main|nl2br}<br>
 </td>
 </tr>
 <tr>
@@ -37,8 +37,15 @@
 <td class="auto-style2" name="Destination">{$Destination}</td>
 </tr>
 </table>
+
+<input type="hidden" name="bodyText" value="{$bodyText}" />
+<input type="hidden" name="sendAddres" value="{$sendAddres}" />
+<input type="hidden" name="userId" value="{$userId}" />
+<input type="hidden" name="subjectText" value="{$subjectText}" />
+
+
 	<br />
-	<input name="Button1" type="button" value="送信" onclick="location.href='sample.html'"/></form>
+	<input name="Button1" type="submit" value="送信"></form>
 
 </body>
 

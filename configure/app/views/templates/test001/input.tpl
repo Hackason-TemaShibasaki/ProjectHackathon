@@ -45,7 +45,7 @@
 <tr>
 <td>宛先：</td>
 <td><select multiple="multiple" name="Destination" style="width: 173px">
-<option>柴崎稚人</option>
+<option value = "10">柴崎稚人</option>
 <option>本多竜馬</option>
 <option>杉田翔太郎</option>
 <option>尾嵜文信</option>
