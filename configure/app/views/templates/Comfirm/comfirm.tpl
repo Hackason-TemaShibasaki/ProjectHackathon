@@ -18,21 +18,23 @@
 </head>
 
 <body>
+<form action="http://localhost/garoon_api/ComfirmController/sendMessage" name="dummy" method="post" enctype="multipart/form-data">
+
 <h1>確認画面</h1>
 <form action="" method="post">
 <table class="auto-style1">
 <tr>
 <td class="auto-style2">タイトル</td>
-<td class="auto-style2" name="title"></td>
+<td class="auto-style2" name="title">{$title}</td>
 </tr>
 <tr>
 <td class="auto-style2">本文</td>
-<td class="auto-style2" name="main"><br>
+<td class="auto-style2" name="main" >{$main}<br>
 </td>
 </tr>
 <tr>
 <td class="auto-style2">宛先</td>
-<td class="auto-style2" name="dest"></td>
+<td class="auto-style2" name="Destination">{$Destination}</td>
 </tr>
 </table>
 	<br />

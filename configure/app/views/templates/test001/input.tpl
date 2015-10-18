@@ -11,7 +11,7 @@
 
 <body>
 
-<form action="" method="post">
+<form action="http://localhost/garoon_api/Comfirm/display" name="dummy" method="post" enctype="multipart/form-data">
 <h1>勤怠報告</h1>
 <table>
 <tr>
@@ -25,8 +25,6 @@
 <option>AM休</option>
 <option>PM休</option>
 <option>電車遅延</option>
-<option>痴漢</option>
-<option>痴漢（冤罪）</option>
 <option>Flex</option>
 </select></td>
 </tr>
@@ -56,7 +54,7 @@
 </tr>
 </table>
   <br />
-  <input name="Button1" type="button" value="確認" onclick="location.href='confirm.html'" /></form>
+  <input name="Button1" type="submit" value="確認" onclick="location.href='confirm.html'" /></form>
 
 </body>
 

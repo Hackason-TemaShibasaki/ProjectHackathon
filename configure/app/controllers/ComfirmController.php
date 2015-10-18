@@ -32,23 +32,45 @@ class ComfirmController extends Zend_Controller_Action
      *
      * @return void
      */
-    public function indexAction()
+    public function displayAction()
     {
-
         $req = $this->getRequest();
         $controllerName = $req->getControllerName();
 
-        $displayContent = $this->view->render($controllerName . '/Comfirm.tpl');
-
-        //
 
 
         // 勤怠情報の取得
+        $req = $this->getRequest();
+        $res = $this->getResponse();
+        $controllerName = $req->getControllerName();
 
-        $this->view->assign('title',title);
+        $Date = $req->getparam('Date');
+        $Attendance = $req->getparam('Attendance');
+        $Reason = $req->getparam('Reason');
+        $Destination = $req->getparam('Destination');
+        $userName = $req->getparam('userName');
+        $userId = $req->getparam('userId');
 
 
+        // タイトルの設定
+        $title = '勤怠報告('.$Date.')';
+        $this->view->assign('title',$title);
 
+
+        // 勤怠内容の設定
+        // TODO：勤怠内容は何が取れる？取れた内容がintとかならそれでSwitchとかでString設定
+        $main = '氏名：'.$userName.'<br>'.
+                '日付：'.$Date.'<br>'.
+                '勤怠：'.'<br>'.
+                '理由：'.$Reason;
+
+
+        $this->view->assign('main',$main);
+
+        // 宛先の設定
+        $this->view->assign('Destination',$Destination);
+
+        $displayContent = $this->view->render($controllerName . '/comfirm.tpl');
         // 表示
         $res = $this->getResponse();
         $res->setBody($displayContent);
@@ -64,6 +86,16 @@ class ComfirmController extends Zend_Controller_Action
      */
     public function sendMessage()
     {
+    	$req = $this->getRequest();
+    	$res = $this->getResponse();
+    	$controllerName = $req->getControllerName();
+
+
+    	$loginInfo = $req->getCookie('CBSESSID');
+    	$userId = $req->getparam('userId');
+    	$sendAddress =
+    	$bodyText = $req->getparam('main');
+
     	// がルーンAPIの生成
     	$garoonApi = new GaroonApiLib();
 
