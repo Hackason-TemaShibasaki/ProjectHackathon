@@ -104,37 +104,37 @@ mb_regex_encoding(ENCODING);
 
 //### テスト用の処理（コントローラが呼び出せるまでここに書きます）ST ###
 
-// // require_once 'CybozuGaroonAPI.php';
-// // $api = new CybozuGaroonAPI('shibasaki', 'kashikashi$1223');
-// // // // $api->setUser('user', 'password');
-// // // // $api->UtilGetLoginUserId();
-// // // // $api->MessageGetThreadsById();
-// // // // $api->MessageSearchThreads();
-// // // $startDate = strtotime('20151008');
-// // // $api->MessageGetThreadVersions($startDate, false, false, '4802');
-// // // // $api->BaseGetApplicationStatus();
-// // $param = new CbgrnThreadType();
-// // $param->addressee = new CbgrnMessageAddressee();
-// // $param->addressee->user_id = '10';
-// // $param->addressee->name = '柴崎稚人';
-// // $param->addressee->deleted = false;
-// // $param->creator = new CbgrnChangeLogType();
-// // $param->creator->user_id = '10';
-// // $param->creator->name = '柴崎稚人';
-// // $param->modifier = new CbgrnChangeLogType();
-// // $param->modifier->user_id = '10';
-// // $param->modifier->name = '柴崎稚人';
+// require_once 'CybozuGaroonAPI.php';
+// $api = new CybozuGaroonAPI('shibasaki', 'arishiba_0221');
+// // // $api->setUser('user', 'password');
+// // // $api->UtilGetLoginUserId();
+// // // $api->MessageGetThreadsById();
+// // // $api->MessageSearchThreads();
+// // $startDate = strtotime('20151008');
+// // $api->MessageGetThreadVersions($startDate, false, false, '4802');
+// // // $api->BaseGetApplicationStatus();
+// $param = new CbgrnThreadType();
+// $param->addressee = new CbgrnMessageAddressee();
+// $param->addressee->user_id = '10';
+// $param->addressee->name = '柴崎稚人';
+// $param->addressee->deleted = false;
+// $param->creator = new CbgrnChangeLogType();
+// $param->creator->user_id = '10';
+// $param->creator->name = '柴崎稚人';
+// $param->modifier = new CbgrnChangeLogType();
+// $param->modifier->user_id = '10';
+// $param->modifier->name = '柴崎稚人';
 // // $param->content = new CbgrnThreadType();
-// // $param->content->body = 'TestMessage Body';
-// // $param->id = 'dummy';
-// // $param->version = 'dummy';
-// // $param->subject = 'TestMessage Title';
-// // $param->confirm = false;
-// // try {
-// // $result = $api->MessageCreateThreads($param);
-// // } catch (Exception $exp) {
-// //     echo $exp->getMessage();
-// // }
+// // $param->content->body = 'TestMessage Body\nAAA';
+// $param->id = 'dummy';
+// $param->version = 'dummy';
+// $param->subject = 'TestMessage Title\nBBB';
+// $param->confirm = false;
+// try {
+// $result = $api->MessageCreateThreads($param);
+// } catch (Exception $exp) {
+//     echo $exp->getMessage();
+// }
 
 //     $wsdl = 'http://cyb-grn.alphawave.co.jp/cgi-bin/grn210/grn.cgi?WSDL';
 // // //     $api_parameters = array("shibasaki", "kashikashi&1223", "MessageGetThreadsById",
