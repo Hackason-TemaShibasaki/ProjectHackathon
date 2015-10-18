@@ -42,6 +42,7 @@
 <input type="hidden" name="sendAddres" value="{$sendAddres}" />
 <input type="hidden" name="userId" value="{$userId}" />
 <input type="hidden" name="subjectText" value="{$subjectText}" />
+<input type="hidden" name="userName" value="{$userName}" />
 
 
 	<br />

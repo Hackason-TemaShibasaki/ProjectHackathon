@@ -49,7 +49,7 @@
 <option>本多竜馬</option>
 <option>杉田翔太郎</option>
 <option>尾嵜文信</option>
-<option>荒川良明</option>
+<option value = "261">荒川良明</option>
 </select></td>
 </tr>
 </table>

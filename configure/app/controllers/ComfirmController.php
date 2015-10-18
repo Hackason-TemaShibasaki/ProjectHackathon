@@ -58,7 +58,6 @@ class ComfirmController extends Zend_Controller_Action
 
 
         // 勤怠内容の設定
-        // TODO：勤怠内容は何が取れる？取れた内容がintとかならそれでSwitchとかでString設定
         $main = "氏名：".$userName."\n".
                 "日付：".$Date."\n".
                 "勤怠：".$Attendance."\n".
@@ -67,13 +66,19 @@ class ComfirmController extends Zend_Controller_Action
         $this->view->assign('main',$main);
 
         // 宛先の設定
-        $this->view->assign('Destination',$Destination);
+        $loginInfo = $req->getCookie('CBSESSID');
+        // ガルーンAPIの生成
+        $garoonApi = new GaroonApiLib();
+        $DestinationUserInfo = $garoonApi->baseGetUsersById($Destination, $loginInfo);
+        $DestinationUserName = $DestinationUserInfo->user->name;
+        $this->view->assign('Destination',$DestinationUserName);
 
 		// 送信用パラメータの設定
         $this->view->assign('bodyText',htmlspecialchars($main));
         $this->view->assign('sendAddres',$Destination);
         $this->view->assign('userId',$userId);
-        $this->view->assign('subjectText',$subjectText);
+        $this->view->assign('subjectText',$title);
+        $this->view->assign('userName',$userName);
 
         // 表示
         $displayContent = $this->view->render($controllerName . '/comfirm.tpl');
@@ -98,14 +103,17 @@ class ComfirmController extends Zend_Controller_Action
 
     	$loginInfo = $req->getCookie('CBSESSID');
     	$userId = $req->getparam('userId');
+    	$userName = $req->getparam('userName');
     	$sendAddress = $req->getparam('sendAddres');
     	$bodyText = $req->getparam('bodyText');
+    	$subjectText = $req->getparam('subjectText');
 
     	// ガルーンAPIの生成
     	$garoonApi = new GaroonApiLib();
+    	$token = $garoonApi->utilGetRequestToken($loginInfo);
 
     	// メッセージを送信
-    	$result = $garoonApi->messageCreateThreads($loginInfo, $userId, $sendAddress, $bodyText, $subjectText);
+    	$result = $garoonApi->messageCreateThreads($loginInfo, $userId,$userName, $sendAddress, $bodyText, $subjectText, $token);
     }
 
 
