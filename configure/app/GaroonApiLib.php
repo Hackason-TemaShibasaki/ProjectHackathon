@@ -139,6 +139,37 @@ class GaroonApiLib
     }
 
     /**
+     * ユーザー情報の取得（ユーザーID）
+     *
+     * @param string $userId    ユーザーID
+     * @param string $loginInfo ログイン情報
+     *
+     * @return stdClass ユーザー情報
+     */
+    public function baseGetUsersById($userId, $loginInfo)
+    {
+        $actionName = 'BaseGetUsersById';
+
+        $args['user_id'] = $userId;
+
+        // SOAP通信
+        $soapClient = new SoapClientDummy(self::WSDL_STR, $this->soapOptions);
+
+        $soapHeaders = $this->_createHeader('', '', $actionName);
+        $soapClient->__setSoapHeaders($soapHeaders);
+        $soapClient->__setCookie('CBSESSID', $loginInfo);
+
+        try {
+            $result = $soapClient->BaseGetUsersById($args);
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+        }
+
+        return $result;
+
+    }
+
+    /**
      * メッセージの取得
      *
      * @param string $id        メッセージID
@@ -244,7 +275,8 @@ class GaroonApiLib
         $modifier['name'] = $userName;
 
         $content = array();
-        $content['body'] = $bodyText;
+//         $content['body'] = $bodyText;
+        $content['body'] = htmlspecialchars($bodyText);
 
         $folder = array();
 
