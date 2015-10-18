@@ -11,7 +11,7 @@
 
 <body>
 
-<form action="http://localhost/garoon_api/Test001/index" name="dummy" method="post" enctype="multipart/form-data">
+<form action="http://localhost/garoon_api/Test001/input" name="dummy" method="post" enctype="multipart/form-data">
 <h1>送信完了</h1>
 <table>
 <tr>
@@ -20,6 +20,10 @@
 </table>
 
   <br />
+
+<input type="hidden" name="loginName" value="{$loginInfo.loginName}" />
+<input type="hidden" name="userId" value="{$loginInfo.userId}" />
+<input type="hidden" name="userName" value="{$loginInfo.userName}" />
 
   <br />
   <input name="Button1" type="submit" value="戻る"  />

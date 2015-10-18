@@ -11,7 +11,7 @@
 
 <body>
 
-<form action="http://localhost/garoon_api/Comfirm/display" name="dummy" method="post" enctype="multipart/form-data">
+<form action="http://localhost/garoon_api/Test001/display" name="dummy" method="post" enctype="multipart/form-data">
 <h1>勤怠報告</h1>
 <table>
 <tr>
@@ -45,11 +45,11 @@
 <tr>
 <td>宛先：</td>
 <td><select multiple="multiple" name="Destination" style="width: 173px">
+<option value = "261" selected>荒川良明</option>
 <option value = "10">柴崎稚人</option>
 <option>本多竜馬</option>
 <option>杉田翔太郎</option>
 <option>尾嵜文信</option>
-<option value = "261">荒川良明</option>
 </select></td>
 </tr>
 </table>
