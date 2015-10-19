@@ -137,7 +137,7 @@ mb_regex_encoding(ENCODING);
 // }
 
 //     $wsdl = 'http://cyb-grn.alphawave.co.jp/cgi-bin/grn210/grn.cgi?WSDL';
-// // //     $api_parameters = array("shibasaki", "kashikashi&1223", "MessageGetThreadsById",
+// // //     $api_parameters = array("shibasaki", "password", "MessageGetThreadsById",
 // // //             '<parameters>
 // // //                 <thread_id>305335</thread_id>
 // // //             </parameters>'
@@ -159,7 +159,7 @@ mb_regex_encoding(ENCODING);
 // // $actionName = 'BaseGetApplicationStatus';
 // //     $actionName = 'UtilLogin';
 //     $userName = 'shibasaki';
-//     $password = 'kashikashi$1223';
+//     $password = 'password';
 //     $userId = '10';
 
 //     $soapHeaders = array();
