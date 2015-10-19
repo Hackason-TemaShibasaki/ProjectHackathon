@@ -142,7 +142,7 @@ class Test001Controller extends Zend_Controller_Action
         $DestinationUserName = $DestinationUserInfo->user->name;
         $this->view->assign('Destination',$DestinationUserName);
 
-		// 送信用パラメータの設定
+    // 送信用パラメータの設定
         $this->view->assign('bodyText',htmlspecialchars($main));
         $this->view->assign('sendAddres',$Destination);
         $this->view->assign('userId',$userId);
@@ -165,32 +165,32 @@ class Test001Controller extends Zend_Controller_Action
      */
     public function sendmessageAction()
     {
-    	$req = $this->getRequest();
-    	$res = $this->getResponse();
-    	$controllerName = $req->getControllerName();
+      $req = $this->getRequest();
+      $res = $this->getResponse();
+      $controllerName = $req->getControllerName();
 
 
-    	$loginInfo = $req->getCookie('CBSESSID');
-    	$userId = $req->getparam('userId');
-    	$userName = $req->getparam('userName');
-    	$sendAddress = array('user_id' => $req->getparam('sendAddres'));
-    	$bodyText = $req->getparam('bodyText');
-    	$subjectText = $req->getparam('subjectText');
+      $loginInfo = $req->getCookie('CBSESSID');
+      $userId = $req->getparam('userId');
+      $userName = $req->getparam('userName');
+      $sendAddress = array('user_id' => $req->getparam('sendAddres'));
+      $bodyText = $req->getparam('bodyText');
+      $subjectText = $req->getparam('subjectText');
 
-    	// ガルーンAPIの生成
-    	$garoonApi = new GaroonApiLib();
-    	$token = $garoonApi->utilGetRequestToken($loginInfo);
+      // ガルーンAPIの生成
+      $garoonApi = new GaroonApiLib();
+      $token = $garoonApi->utilGetRequestToken($loginInfo);
 
-    	// メッセージを送信
-    	$result = $garoonApi->messageCreateThreads($loginInfo, $userId,$userName, $sendAddress, $bodyText, $subjectText, $token);
+      // メッセージを送信
+      $result = $garoonApi->messageCreateThreads($loginInfo, $userId,$userName, $sendAddress, $bodyText, $subjectText, $token);
 
 
-    	$loginUserInfo = array();
-    	$loginUserInfo['loginName'] = $userName;
-    	$loginUserInfo['userId'] = $userId;
-    	$loginUserInfo['userName'] = $userName;
+      $loginUserInfo = array();
+      $loginUserInfo['loginName'] = $userName;
+      $loginUserInfo['userId'] = $userId;
+      $loginUserInfo['userName'] = $userName;
 
-    	$this->view->assign('loginInfo', $loginUserInfo);
+      $this->view->assign('loginInfo', $loginUserInfo);
 
         // 表示
         $displayContent = $this->view->render($controllerName . '/complete.tpl');
